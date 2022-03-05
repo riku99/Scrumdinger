@@ -28,6 +28,18 @@ extension DailyScrum {
             self.name = name
         }
     }
+    
+    // 全てのプロパティがデフォルトの値を持つとSwiftコンパイラが自動でイニシャライザを作成してくれるので、Data()で呼び出すことができる
+    struct Data {
+        var title: String = ""
+        var attendees: [Attendee] = []
+        var lengthInMinutes: Double = 5
+        var theme: Theme = .seafoam
+    }
+    
+    var data: Data {
+        Data(title: title, attendees: attendees, lengthInMinutes: Double(lengthInMinutes), theme: theme)
+    }
 }
 
 // extension で既存のClassやstructに新しい機能を追加することができる
